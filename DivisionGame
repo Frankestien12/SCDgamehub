@@ -1,0 +1,23 @@
+package lab12;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+public class DivisionGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter the dividend (numerator): ");
+            int dividend = scanner.nextInt();
+            System.out.print("Enter the divisor (denominator): ");
+            int divisor = scanner.nextInt();
+            if (divisor == 0) {
+                throw new ArithmeticException("Division by zero is not allowed.");}
+            if (dividend % divisor != 0) {
+                throw new InputMismatchException("Invalid input. Please enter integers only.");}
+            int result = dividend / divisor;
+            System.out.println("Result of division: " + result);}
+        catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter integers only.");}
+        catch (ArithmeticException e) {
+            System.out.println(e.getMessage());}
+        finally {
+            scanner.close();}}}
